@@ -1,0 +1,512 @@
+/* ==================================================================
+   KG FRIENDS — DESIGN TOKENS
+   Palette pensata come un viaggio temporale, non come decorazione:
+   ogni colore corrisponde a un momento reale della serata.
+   ================================================================== */
+:root{
+  --gold:   #F4A65B; /* Aperitivo Gold  — il sole delle 18:00 */
+  --blush:  #FF7E6B; /* Terrazza Blush  — il tramonto delle 20:30 */
+  --plum:   #4A3358; /* Twilight Plum   — il cielo che scurisce */
+  --ink:    #12101B; /* Mezzanotte Ink  — il fondo della notte, dalle 22 in poi */
+  --neon:   #D8FF4F; /* Citrino Neon    — l'accento notturno, garnish elettrico */
+  --coral:  #FF5D73; /* accento secondario, drink/etichette */
+  --cream:  #FBF3E7; /* Panna Cream     — testo chiaro su fondo scuro */
+
+  --ink-soft: #1B1826;
+  --ink-line: rgba(251,243,231,0.12);
+
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-body: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Space Mono", ui-monospace, monospace;
+
+  --container: 1180px;
+  --radius: 18px;
+  --ease: cubic-bezier(.16,.84,.44,1);
+}
+
+*{ box-sizing:border-box; }
+html{ scroll-behavior:auto; }
+body{
+  margin:0;
+  background:var(--ink);
+  color:var(--cream);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+h1,h2,h3{ font-family:var(--font-display); font-weight:500; margin:0; }
+p{ margin:0; }
+ul{ list-style:none; margin:0; padding:0; }
+button{ font:inherit; background:none; border:none; cursor:pointer; color:inherit; }
+
+:focus-visible{
+  outline:2px solid var(--neon);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:.72rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--neon);
+  margin:0 0 18px;
+}
+.eyebrow--dark{ color:var(--coral); }
+
+/* ==================================================================
+   BOTTONI
+   ================================================================== */
+.btn{
+  display:inline-flex; align-items:center; gap:.55em;
+  padding:.95em 1.6em;
+  border-radius:999px;
+  font-family:var(--font-body);
+  font-weight:700;
+  font-size:.95rem;
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), background-color .35s var(--ease);
+  white-space:nowrap;
+}
+.btn--primary{
+  background:var(--neon);
+  color:var(--ink);
+  box-shadow:0 8px 30px -8px rgba(216,255,79,.55);
+}
+.btn--primary:hover{ transform:translateY(-2px); box-shadow:0 14px 36px -8px rgba(216,255,79,.7); }
+.btn--ghost{
+  background:transparent;
+  color:var(--cream);
+  border:1.5px solid var(--ink-line);
+}
+.btn--ghost:hover{ border-color:var(--cream); transform:translateY(-2px); }
+.btn--outline{
+  background:transparent;
+  border:1.5px solid var(--coral);
+  color:var(--coral);
+  margin:44px auto 0;
+}
+.btn--outline:hover{ background:var(--coral); color:var(--ink); }
+.btn--block{ width:100%; justify-content:center; margin-top:22px; }
+
+/* ==================================================================
+   L'ARCO CELESTE — elemento firma, fisso in alto su tutta la pagina
+   ================================================================== */
+.celestial-track{
+  position:fixed; top:0; left:0; right:0; height:26px;
+  z-index:200; pointer-events:none;
+  background:linear-gradient(to bottom, rgba(18,16,27,.9), transparent);
+}
+.celestial-track__path{
+  position:absolute; inset:0; width:100%; height:100%;
+}
+.celestial-track__path path{
+  stroke:var(--ink-line);
+  stroke-width:.6;
+  vector-effect:non-scaling-stroke;
+}
+.celestial-body{
+  position:absolute; top:0; left:0;
+  width:10px; height:10px; border-radius:50%;
+  background:var(--gold);
+  box-shadow:0 0 14px 2px rgba(244,166,91,.8);
+  transform:translate(-50%,-50%);
+  will-change:transform,background-color,box-shadow;
+}
+
+/* ==================================================================
+   TOPBAR
+   ================================================================== */
+.topbar{
+  position:fixed; top:26px; left:0; right:0; z-index:190;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:16px clamp(20px,4vw,56px);
+  backdrop-filter:blur(10px);
+  background:linear-gradient(to bottom, rgba(18,16,27,.55), transparent);
+}
+.topbar__logo{
+  font-family:var(--font-display); font-weight:600; font-size:1.15rem;
+  letter-spacing:.01em; color:var(--cream);
+}
+.topbar__logo span{ color:var(--neon); font-style:italic; }
+.topbar__nav{ display:flex; gap:28px; }
+.topbar__nav a{
+  font-size:.85rem; font-weight:600; color:var(--cream); opacity:.75;
+  transition:opacity .25s;
+}
+.topbar__nav a:hover{ opacity:1; }
+.topbar__cta{
+  font-family:var(--font-mono); font-size:.78rem; text-transform:uppercase;
+  letter-spacing:.06em; border:1px solid var(--ink-line);
+  padding:.6em 1.2em; border-radius:999px; transition:.25s;
+}
+.topbar__cta:hover{ border-color:var(--neon); color:var(--neon); }
+
+@media (max-width:860px){
+  .topbar__nav{ display:none; }
+}
+
+/* ==================================================================
+   HERO — golden hour statica
+   ================================================================== */
+.hero{
+  position:relative; min-height:100svh;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  padding:120px clamp(20px,5vw,64px) 90px;
+  background:
+    radial-gradient(120% 90% at 15% 0%, rgba(255,255,255,.25), transparent 55%),
+    linear-gradient(160deg, var(--gold) 0%, var(--blush) 55%, #C9576B 100%);
+  overflow:hidden;
+}
+.hero__glow{
+  position:absolute; inset:0;
+  background:radial-gradient(60% 50% at 80% 20%, rgba(255,255,255,.35), transparent 70%);
+  mix-blend-mode:overlay;
+}
+.hero__grain{
+  position:absolute; inset:0; opacity:.5; mix-blend-mode:overlay;
+  background-image:radial-gradient(rgba(255,255,255,.5) 1px, transparent 1px);
+  background-size:3px 3px;
+}
+.hero__inner{ position:relative; max-width:760px; }
+.hero .eyebrow{ color:rgba(18,16,27,.75); }
+.hero__title{
+  font-size:clamp(2.6rem, 6.4vw, 5.2rem);
+  line-height:.98;
+  color:var(--ink);
+  margin-bottom:24px;
+}
+.hero__title span{ display:block; }
+.hero__title em{ display:block; font-style:italic; color:#3a2a1c; }
+.hero__lede{
+  font-size:clamp(1.02rem,1.6vw,1.2rem);
+  max-width:46ch; color:rgba(18,16,27,.82);
+  margin-bottom:34px;
+}
+.hero__actions{ display:flex; flex-wrap:wrap; gap:14px; margin-bottom:30px; }
+.hero .btn--ghost{ color:var(--ink); border-color:rgba(18,16,27,.3); }
+.hero .btn--ghost:hover{ border-color:var(--ink); }
+.hero__meta{
+  display:flex; flex-wrap:wrap; align-items:center; gap:10px;
+  font-size:.88rem; color:rgba(18,16,27,.78);
+}
+.hero__meta strong{ color:var(--ink); }
+.hero .stars{ color:#3a2a1c; letter-spacing:2px; }
+.hero .dot{ opacity:.5; }
+
+.scroll-cue{
+  position:absolute; bottom:28px; left:50%; transform:translateX(-50%);
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  font-family:var(--font-mono); font-size:.68rem; letter-spacing:.1em;
+  text-transform:uppercase; color:rgba(18,16,27,.65);
+}
+.scroll-cue i{
+  width:1px; height:34px;
+  background:linear-gradient(to bottom, rgba(18,16,27,.7), transparent);
+  animation:cueMove 2s ease-in-out infinite;
+}
+@keyframes cueMove{
+  0%,100%{ transform:scaleY(.6); opacity:.4; }
+  50%{ transform:scaleY(1); opacity:1; }
+}
+
+/* ==================================================================
+   THE EXPERIENCE — sezione pinnata di scrollytelling
+   ================================================================== */
+.experience{ height:400vh; position:relative; }
+.experience__pin{
+  position:relative; height:100svh; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+}
+.experience__sky{
+  position:absolute; top:0; left:0; right:0; height:400%;
+  background:linear-gradient(180deg, var(--gold) 0%, var(--blush) 30%, var(--plum) 62%, var(--ink) 84%, var(--ink) 100%);
+  will-change:transform;
+}
+.experience__skyline{
+  position:absolute; left:0; right:0; bottom:0; height:22%;
+  background:linear-gradient(to top, var(--ink) 0%, transparent 100%);
+  opacity:.9;
+}
+.experience__lights{ position:absolute; inset:0; pointer-events:none; }
+.experience__lights span{
+  position:absolute; width:6px; height:6px; border-radius:50%;
+  background:var(--neon);
+  box-shadow:0 0 10px 3px rgba(216,255,79,.9);
+  opacity:0;
+  top:calc(12% + (var(--i,0) * 6%));
+  left:calc(4% + (var(--i,0) * 8.5%));
+  animation:lightFloat 3.4s ease-in-out infinite;
+  animation-delay:calc(var(--i,0) * .22s);
+}
+@keyframes lightFloat{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-7px); }
+}
+.experience__lights span:nth-child(1){ --i:0; top:14%; }
+.experience__lights span:nth-child(2){ --i:1; top:9%; }
+.experience__lights span:nth-child(3){ --i:2; top:16%; }
+.experience__lights span:nth-child(4){ --i:3; top:8%; }
+.experience__lights span:nth-child(5){ --i:4; top:15%; }
+.experience__lights span:nth-child(6){ --i:5; top:10%; }
+.experience__lights span:nth-child(7){ --i:6; top:17%; }
+.experience__lights span:nth-child(8){ --i:7; top:9%; }
+.experience__lights span:nth-child(9){ --i:8; top:14%; }
+.experience__lights span:nth-child(10){ --i:9; top:8%; }
+.experience__lights span:nth-child(11){ --i:10; top:16%; }
+.experience__lights span:nth-child(12){ --i:11; top:11%; }
+
+.experience__scenes{ position:relative; width:min(700px, 88vw); height:min(52vh,440px); text-align:center; }
+.scene{
+  position:absolute; inset:0;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  opacity:0;
+}
+.scene__time{
+  font-family:var(--font-mono); font-size:.85rem; letter-spacing:.16em;
+  color:var(--cream); opacity:.85; margin-bottom:14px; display:block;
+}
+.scene__title{
+  font-size:clamp(2.4rem,5.5vw,4rem); color:var(--cream); margin-bottom:18px;
+  font-style:italic;
+}
+.scene__text{
+  font-size:clamp(1rem,1.6vw,1.2rem); color:rgba(251,243,231,.85);
+  max-width:48ch; margin:0 auto;
+}
+.experience__progress{
+  position:absolute; bottom:36px; left:50%; transform:translateX(-50%);
+  width:min(320px,60vw); height:2px; background:rgba(251,243,231,.2);
+  border-radius:2px; overflow:hidden;
+}
+.experience__progress-bar{
+  display:block; height:100%; width:0%;
+  background:linear-gradient(90deg, var(--gold), var(--neon));
+}
+
+/* ==================================================================
+   MENU TEASER
+   ================================================================== */
+.menu{ background:var(--ink); padding:140px clamp(20px,5vw,64px) 100px; }
+.section-head{ max-width:760px; margin:0 auto 60px; text-align:center; }
+.section-head h2{ font-size:clamp(1.9rem,3.6vw,2.9rem); line-height:1.15; margin-bottom:16px; }
+.section-head h2 em{ font-style:italic; color:var(--neon); }
+.section-sub{ color:rgba(251,243,231,.65); font-size:1.02rem; max-width:56ch; margin:0 auto; }
+
+.menu__grid{
+  max-width:var(--container); margin:0 auto;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:22px;
+}
+.drink-card{
+  position:relative; border-radius:var(--radius);
+  padding:34px 26px 28px;
+  background:var(--ink-soft);
+  border:1px solid var(--ink-line);
+  overflow:hidden;
+  transform-style:preserve-3d;
+  will-change:transform;
+  transition:border-color .4s;
+}
+.drink-card::before{
+  content:""; position:absolute; inset:0; opacity:0; transition:opacity .4s;
+  background:radial-gradient(circle at var(--mx,50%) var(--my,50%), color-mix(in srgb, var(--drink-a) 55%, transparent), transparent 60%);
+}
+.drink-card:hover::before{ opacity:.5; }
+.drink-card:hover{ border-color:color-mix(in srgb, var(--drink-a) 60%, var(--ink-line)); }
+.drink-card__glass{
+  font-size:2.1rem; margin-bottom:18px;
+  filter:drop-shadow(0 8px 18px rgba(0,0,0,.35));
+}
+.drink-card__body h3{
+  font-size:1.4rem; color:var(--cream); margin-bottom:10px;
+}
+.drink-card__desc{
+  font-size:.92rem; color:rgba(251,243,231,.68); line-height:1.55; margin-bottom:18px;
+}
+.drink-card__tags{ display:flex; flex-wrap:wrap; gap:8px; }
+.drink-card__tags li{
+  font-family:var(--font-mono); font-size:.68rem; text-transform:uppercase;
+  letter-spacing:.05em; padding:.4em .7em; border-radius:999px;
+  border:1px solid var(--ink-line); color:rgba(251,243,231,.6);
+}
+.drink-card__price{
+  position:absolute; top:28px; right:26px;
+  font-family:var(--font-mono); font-weight:700; font-size:1rem;
+  color:var(--drink-a);
+}
+
+@media (max-width:960px){ .menu__grid{ grid-template-columns:repeat(2,1fr); } }
+@media (max-width:620px){ .menu__grid{ grid-template-columns:1fr; } }
+
+/* ==================================================================
+   LIVE FEED
+   ================================================================== */
+.feed{
+  background:var(--ink-soft);
+  padding:120px clamp(20px,5vw,64px);
+  text-align:center;
+  border-top:1px solid var(--ink-line);
+  border-bottom:1px solid var(--ink-line);
+}
+.feed .section-head{ margin-bottom:50px; }
+.feed .section-sub strong{ color:var(--neon); }
+
+.feed__frame{
+  max-width:960px; margin:0 auto; border-radius:24px;
+  padding:3px;
+  background:linear-gradient(135deg, var(--gold), var(--coral), var(--plum));
+}
+.feed__embed-placeholder{
+  background:var(--ink); border-radius:22px;
+  padding:60px 30px; display:flex; flex-direction:column; align-items:center; gap:26px;
+}
+.feed__embed{ width:100%; min-height:600px; border:0; border-radius:22px; display:block; }
+.feed__ph-grid{
+  display:grid; grid-template-columns:repeat(4,1fr); gap:10px;
+  width:min(560px,100%);
+}
+.feed__ph-grid span{
+  aspect-ratio:1; border-radius:10px;
+  background:linear-gradient(135deg, rgba(216,255,79,.12), rgba(255,126,107,.12));
+  border:1px dashed var(--ink-line);
+}
+.feed__embed-placeholder p{ color:rgba(251,243,231,.6); font-size:.95rem; }
+
+/* ==================================================================
+   SOCIAL PROOF
+   ================================================================== */
+.reviews{ background:var(--ink); padding:140px 0 120px; text-align:center; overflow:hidden; }
+.reviews__score{
+  display:flex; align-items:center; justify-content:center; gap:26px;
+  margin-bottom:22px; flex-wrap:wrap;
+}
+.reviews__number{
+  font-family:var(--font-display); font-style:italic; font-weight:500;
+  font-size:clamp(5rem,14vw,9rem); line-height:1; color:var(--neon);
+}
+.reviews__score-side{ text-align:left; }
+.reviews__stars{ display:block; color:var(--gold); font-size:1.6rem; letter-spacing:4px; margin-bottom:6px; }
+.reviews__count{ font-size:1rem; color:rgba(251,243,231,.7); }
+.reviews__lead{
+  font-family:var(--font-display); font-style:italic; font-size:clamp(1.2rem,2.4vw,1.7rem);
+  color:rgba(251,243,231,.85); max-width:44ch; margin:0 auto 60px;
+}
+
+.reviews__marquee-wrap{
+  -webkit-mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image:linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.reviews__marquee{ display:flex; }
+.reviews__track{ display:flex; gap:20px; padding:0 10px; flex-shrink:0; }
+.reviews__track blockquote{
+  margin:0; flex-shrink:0; width:340px;
+  background:var(--ink-soft); border:1px solid var(--ink-line);
+  border-radius:16px; padding:26px 24px;
+  font-size:.95rem; line-height:1.6; color:rgba(251,243,231,.82);
+  text-align:left;
+}
+
+.reviews__tags{
+  display:flex; flex-wrap:wrap; justify-content:center; gap:10px;
+  margin-top:44px; max-width:700px; margin-left:auto; margin-right:auto;
+}
+.reviews__tags li{
+  font-family:var(--font-mono); font-size:.72rem; letter-spacing:.04em;
+  padding:.5em .9em; border-radius:999px; color:var(--coral);
+  border:1px solid rgba(255,93,115,.35);
+}
+
+/* ==================================================================
+   FOOTER
+   ================================================================== */
+.footer{ background:var(--ink-soft); padding:100px clamp(20px,5vw,64px) 30px; }
+.footer__grid{
+  max-width:var(--container); margin:0 auto;
+  display:grid; grid-template-columns:1.3fr 1fr; gap:40px;
+}
+.footer__map{
+  position:relative; border-radius:var(--radius); overflow:hidden;
+  min-height:420px; background:var(--ink);
+}
+.footer__map-frame{
+  width:100%; height:100%; min-height:420px; border:0;
+  filter:grayscale(1) invert(92%) contrast(83%) brightness(.9);
+}
+.footer__map-veil{
+  position:absolute; inset:0; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:8px;
+  background:rgba(18,16,27,.55); backdrop-filter:blur(2px);
+  color:var(--cream); transition:opacity .4s;
+}
+.footer__map-veil span{ font-weight:700; }
+.footer__map-veil small{ opacity:.7; font-family:var(--font-mono); font-size:.72rem; }
+.footer__map-veil.is-hidden{ opacity:0; pointer-events:none; }
+
+.footer__logo{ font-family:var(--font-display); font-size:1.6rem; margin-bottom:26px; }
+.footer__logo span{ color:var(--neon); font-style:italic; }
+.footer__hours{ margin-bottom:26px; }
+.footer__hours div{
+  display:flex; justify-content:space-between; gap:16px;
+  padding:12px 0; border-bottom:1px dashed var(--ink-line);
+  font-family:var(--font-mono); font-size:.85rem;
+}
+.footer__hours span{ color:rgba(251,243,231,.6); }
+.footer__contacts{ display:flex; flex-direction:column; gap:10px; font-style:normal; margin-bottom:8px; }
+.footer__contacts a{ font-size:.92rem; color:rgba(251,243,231,.75); transition:color .25s; }
+.footer__contacts a:hover{ color:var(--neon); }
+
+.footer__bottom{
+  max-width:var(--container); margin:70px auto 0;
+  display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  padding-top:24px; border-top:1px solid var(--ink-line);
+  font-size:.78rem; color:rgba(251,243,231,.5);
+}
+
+@media (max-width:860px){
+  .footer__grid{ grid-template-columns:1fr; }
+  .footer__map{ min-height:300px; }
+  .footer__map-frame{ min-height:300px; }
+}
+
+/* ==================================================================
+   FLOATING WHATSAPP
+   ================================================================== */
+.fab-whatsapp{
+  position:fixed; right:22px; bottom:22px; z-index:180;
+  width:56px; height:56px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  background:var(--neon); color:var(--ink);
+  box-shadow:0 10px 30px -6px rgba(216,255,79,.6);
+  transition:transform .3s var(--ease);
+}
+.fab-whatsapp:hover{ transform:scale(1.08); }
+
+/* ==================================================================
+   REVEAL — stato iniziale per gli elementi animati da GSAP
+   ================================================================== */
+[data-reveal]{ opacity:0; transform:translateY(24px); }
+.js-ready [data-reveal]{ transition:none; } /* GSAP prende il controllo */
+
+/* ==================================================================
+   RESPONSIVE — mobile
+   ================================================================== */
+@media (max-width:640px){
+  .hero{ padding-top:100px; padding-bottom:70px; }
+  .hero__actions{ flex-direction:column; align-items:stretch; }
+  .hero__actions .btn{ justify-content:center; }
+  .experience{ height:340vh; }
+  .scene__text{ font-size:1rem; }
+  .reviews__score{ flex-direction:column; gap:10px; }
+  .reviews__score-side{ text-align:center; }
+}
+
+/* ==================================================================
+   ACCESSIBILITÀ — rispetto delle preferenze di movimento ridotto
+   ================================================================== */
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+  .scroll-cue i{ animation:none; }
+}
