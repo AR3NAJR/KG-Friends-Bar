@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KG Friends — Terrazza panoramica &amp; Cocktail Bar, Nova Milanese</title>
+<meta name="description" content="KG Friends, Nova Milanese (MB). Aperitivo in terrazza dalle 18, cocktail e nottate tra amici. 4.0★ su Google con oltre 430 recensioni. Via Olindo Favaron 68/A.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="KG Friends — Nova Milanese">
+<meta property="og:description" content="Dall'aperitivo in terrazza alla notte: cocktail, taglieri e amici. Via Olindo Favaron 68/A, Nova Milanese (MB).">
+<meta property="og:type" content="website">
+
+<!-- Preconnect ai font per performance -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+<!-- ============================================================
+     DATI STRUTTURATI — aiutano Google a mostrare stelle/orari
+     direttamente nei risultati di ricerca (rich snippet).
+     Aggiornare "ratingValue" e "reviewCount" una volta l'anno
+     è sufficiente: non è un dato che cambia rapidamente.
+     ============================================================ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BarOrPub",
+  "name": "KG Friends",
+  "image": "",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Via Olindo Favaron, 68/A",
+    "addressLocality": "Nova Milanese",
+    "addressRegion": "MB",
+    "postalCode": "20834",
+    "addressCountry": "IT"
+  },
+  "telephone": "+39 0362 1446867",
+  "servesCuisine": "Cocktail Bar",
+  "priceRange": "€10–€20",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.0",
+    "reviewCount": "430"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Sunday"], "opens": "18:00", "closes": "01:00" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Friday","Saturday"], "opens": "18:00", "closes": "02:00" }
+  ],
+  "sameAs": ["https://www.instagram.com/kg_friends/", "https://www.facebook.com/kgfriendsloungebar/"]
+}
+</script>
+</head>
+<body>
+
+<!-- ============================================================
+     L'ARCO CELESTE — elemento firma del sito.
+     Barra fissa in alto: una sottile traiettoria che un piccolo
+     "corpo celeste" percorre da sinistra (sole ☀) a destra (luna ☾)
+     seguendo l'avanzamento di scroll sull'INTERA pagina.
+     È insieme decorazione e indicatore di progresso: mentre scorri
+     la pagina, scorre anche la serata al KG Friends.
+     ============================================================ -->
+<div class="celestial-track" aria-hidden="true">
+  <svg class="celestial-track__path" viewBox="0 0 100 20" preserveAspectRatio="none">
+    <path id="arcPath" d="M 2,16 Q 50,-6 98,16" fill="none" />
+  </svg>
+  <div class="celestial-body" id="celestialBody"></div>
+</div>
+
+<header class="topbar">
+  <a href="#hero" class="topbar__logo">KG<span>Friends</span></a>
+  <nav class="topbar__nav">
+    <a href="#experience">La Serata</a>
+    <a href="#menu">Cocktail</a>
+    <a href="#feed">Eventi</a>
+    <a href="#reviews">Recensioni</a>
+    <a href="#contatti">Dove siamo</a>
+  </nav>
+  <a class="topbar__cta" href="https://wa.me/393454113142?text=Ciao%20KG%20Friends%2C%20vorrei%20prenotare%20un%20tavolo" target="_blank" rel="noopener">Prenota</a>
+</header>
+
+<!-- ============================================================
+     HERO — Golden hour. Il locale nel suo momento più aperto:
+     luce calda, terrazza, primo giro.
+     ============================================================ -->
+<header id="hero" class="hero">
+  <div class="hero__glow" aria-hidden="true"></div>
+  <div class="hero__grain" aria-hidden="true"></div>
+
+  <div class="hero__inner">
+    <p class="eyebrow" data-reveal>Terrazza panoramica · Via Olindo Favaron 68/A, Nova Milanese</p>
+    <h1 class="hero__title">
+      <span data-reveal>Arriva per il sole.</span>
+      <em data-reveal>Resta per la notte.</em>
+    </h1>
+    <p class="hero__lede" data-reveal>
+      Taglieri abbondanti, cocktail veloci e una terrazza che dalle 18 non si svuota mai.
+      Ogni sera al KG Friends comincia come un aperitivo e finisce come un ricordo.
+    </p>
+
+    <div class="hero__actions" data-reveal>
+      <a class="btn btn--primary" href="https://wa.me/393454113142?text=Ciao%20KG%20Friends%2C%20vorrei%20prenotare%20un%20tavolo" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1s-.7.8-.9 1c-.2.2-.3.2-.6.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.2 0-.4 0-.5L8.9 7.9c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.5-.3Z"/></svg>
+        Prenota il tavolo
+      </a>
+      <a class="btn btn--ghost" href="tel:+390362144687">
+        <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.6 15.6 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11 11 0 0 0 3.5.56 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11 11 0 0 0 .56 3.5 1 1 0 0 1-.25 1Z"/></svg>
+        0362 144 6867
+      </a>
+    </div>
+
+    <div class="hero__meta" data-reveal>
+      <span class="stars" aria-hidden="true">★★★★☆</span>
+      <span><strong>4.0</strong> su Google · <strong>430+</strong> recensioni</span>
+      <span class="dot">·</span>
+      <span>Aperto ogni giorno dalle 18:00</span>
+    </div>
+  </div>
+
+  <div class="scroll-cue" aria-hidden="true">
+    <span>Scorri e vivi la serata</span>
+    <i></i>
+  </div>
+</header>
+
+<!-- ============================================================
+     THE EXPERIENCE — Zona di scrollytelling.
+     Sezione alta 400vh con un pannello "pinnato": lo scroll qui
+     non fa scorrere la pagina, fa passare il TEMPO. Il cielo
+     passa da oro a blu notte, le lucine si accendono, tre scene
+     raccontano tre momenti reali di una serata al KG Friends.
+     ============================================================ -->
+<section id="experience" class="experience">
+  <div class="experience__pin" id="experiencePin">
+
+    <div class="experience__sky" id="experienceSky" aria-hidden="true"></div>
+
+    <div class="experience__lights" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span>
+    </div>
+
+    <div class="experience__skyline" aria-hidden="true"></div>
+
+    <div class="experience__scenes">
+      <article class="scene" data-scene="1">
+        <span class="scene__time">18:00</span>
+        <h2 class="scene__title">L'aperitivo</h2>
+        <p class="scene__text">Il sole è ancora alto, la terrazza si riempie. Tagliere al centro del tavolo, primo giro di cocktail, chiacchiere che non hanno fretta di finire.</p>
+      </article>
+      <article class="scene" data-scene="2">
+        <span class="scene__time">20:30</span>
+        <h2 class="scene__title">Il tramonto</h2>
+        <p class="scene__text">Il cielo si accende, i tavoli si avvicinano. È il momento esatto in cui l'aperitivo comincia a somigliare a una serata.</p>
+      </article>
+      <article class="scene" data-scene="3">
+        <span class="scene__time">22:00</span>
+        <h2 class="scene__title">La notte</h2>
+        <p class="scene__text">Le lucine si accendono, i bicchieri cambiano forma. KG Friends si sveglia davvero: musica, amici, un altro giro.</p>
+      </article>
+    </div>
+
+    <div class="experience__progress" aria-hidden="true">
+      <span class="experience__progress-bar" id="experienceProgress"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MENU TEASER — sei drink, carte con tilt 3D al passaggio
+     del mouse e "vetrino" di ingredienti che si rivela in hover.
+     ============================================================ -->
+<section id="menu" class="menu">
+  <div class="section-head">
+    <p class="eyebrow eyebrow--dark" data-reveal>La selezione</p>
+    <h2 data-reveal>Sei drink, una regola sola:<br><em>bere bene, senza prendersi troppo sul serio.</em></h2>
+    <p class="section-sub" data-reveal>Un assaggio della carta — quella vera, più lunga, vi aspetta al bancone.</p>
+  </div>
+
+  <div class="menu__grid">
+
+    <article class="drink-card" style="--drink-a:#F4A65B;--drink-b:#FF7E6B;">
+      <div class="drink-card__glass" aria-hidden="true">🍸</div>
+      <div class="drink-card__body">
+        <h3>Nova Spritz</h3>
+        <p class="drink-card__desc">La firma di casa: agrumato, leggermente amaro, pensato per il primo giro in terrazza.</p>
+        <ul class="drink-card__tags">
+          <li>bitter</li><li>prosecco</li><li>scorza d'arancia</li>
+        </ul>
+      </div>
+      <span class="drink-card__price">9€</span>
+    </article>
+
+    <article class="drink-card" style="--drink-a:#D8FF4F;--drink-b:#4A3358;">
+      <div class="drink-card__glass" aria-hidden="true">🥃</div>
+      <div class="drink-card__body">
+        <h3>Amici Come Prima</h3>
+        <p class="drink-card__desc">Bourbon, vermouth e un twist affumicato. Per chi al secondo giro passa alle cose serie.</p>
+        <ul class="drink-card__tags">
+          <li>bourbon</li><li>vermouth</li><li>affumicato</li>
+        </ul>
+      </div>
+      <span class="drink-card__price">11€</span>
+    </article>
+
+    <article class="drink-card" style="--drink-a:#FF5D73;--drink-b:#12101B;">
+      <div class="drink-card__glass" aria-hidden="true">🍹</div>
+      <div class="drink-card__body">
+        <h3>Terrazza 68</h3>
+        <p class="drink-card__desc">Dal civico del locale: rum bianco, frutto della passione, lime. Beve come una vacanza corta.</p>
+        <ul class="drink-card__tags">
+          <li>rum</li><li>passion fruit</li><li>lime</li>
+        </ul>
+      </div>
+      <span class="drink-card__price">10€</span>
+    </article>
+
+    <article class="drink-card" style="--drink-a:#FBF3E7;--drink-b:#F4A65B;">
+      <div class="drink-card__glass" aria-hidden="true">🍋</div>
+      <div class="drink-card__body">
+        <h3>Gnocco &amp; Gin</h3>
+        <p class="drink-card__desc">Un omaggio ai taglieri di casa: gin, salvia, soda al limone. Va giù che è un piacere.</p>
+        <ul class="drink-card__tags">
+          <li>gin</li><li>salvia</li><li>soda</li>
+        </ul>
+      </div>
+      <span class="drink-card__price">9€</span>
+    </article>
+
+    <article class="drink-card" style="--drink-a:#4A3358;--drink-b:#D8FF4F;">
+      <div class="drink-card__glass" aria-hidden="true">🌙</div>
+      <div class="drink-card__body">
+        <h3>Dopo Mezzanotte</h3>
+        <p class="drink-card__desc">Il drink da dopo le 22: vodka, caffè espresso, un cucchiaino di zucchero di canna. Sveglia.</p>
+        <ul class="drink-card__tags">
+          <li>vodka</li><li>espresso</li><li>zucchero di canna</li>
+        </ul>
+      </div>
+      <span class="drink-card__price">10€</span>
+    </article>
+
+    <article class="drink-card" style="--drink-a:#FF7E6B;--drink-b:#FF5D73;">
+      <div class="drink-card__glass" aria-hidden="true">🍓</div>
+      <div class="drink-card__body">
+        <h3>Analcolico KG</h3>
+        <p class="drink-card__desc">Per chi guida, per chi è arrivato prima, per i più piccoli in aperitivo con la famiglia.</p>
+        <ul class="drink-card__tags">
+          <li>fragola</li><li>zenzero</li><li>lime</li>
+        </ul>
+      </div>
+      <span class="drink-card__price">6€</span>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     LIVE FEED & EVENTI — cuore della filosofia "zero manutenzione".
+     Il proprietario pubblica su Instagram come ha sempre fatto:
+     questo riquadro si aggiorna da solo. Nessun codice da toccare.
+     ============================================================ -->
+<section id="feed" class="feed">
+  <div class="section-head">
+    <p class="eyebrow" data-reveal>Cosa succede questa settimana</p>
+    <h2 data-reveal>Niente eventi scritti nella pietra.<br><em>Qui è sempre aggiornato, in automatico.</em></h2>
+    <p class="section-sub" data-reveal>
+      Quello che vedi sotto arriva in diretta da <strong>@kg_friends</strong>. Serata a tema, DJ set del venerdì,
+      promo dell'ultimo minuto: se viene pubblicato su Instagram, appare qui — senza che nessuno debba
+      aggiornare questo sito a mano.
+    </p>
+  </div>
+
+  <div class="feed__frame" data-reveal>
+    <!-- ============================================================
+         PUNTO DI INNESTO WIDGET INSTAGRAM
+         ------------------------------------------------------------
+         Qui va incollato l'embed di un servizio gratuito che legge
+         in automatico i post pubblici di @kg_friends (es. SnapWidget,
+         LightWidget, Elfsight Instagram Feed — tutti offrono un piano
+         free sufficiente per un profilo). Bastano 2 minuti:
+         1) creare il widget collegando il profilo Instagram pubblico
+         2) incollare qui lo <iframe> o lo <script> fornito
+         Da quel momento il riquadro si aggiorna da solo, per sempre,
+         a costo zero e senza alcuna chiave API da gestire.
+
+         <iframe src="https://snapwidget.com/embed/XXXXXXX"
+                 class="feed__embed" allowtransparency="true" frameborder="0"
+                 scrolling="no"></iframe>
+         ============================================================ -->
+    <div class="feed__embed-placeholder" id="instagram-embed-container">
+      <div class="feed__ph-grid">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+      </div>
+      <p>Qui apparirà il feed live di <strong>@kg_friends</strong></p>
+    </div>
+  </div>
+
+  <a class="btn btn--outline" href="https://www.instagram.com/kg_friends/" target="_blank" rel="noopener" data-reveal>
+    Segui @kg_friends su Instagram
+  </a>
+</section>
+
+<!-- ============================================================
+     SOCIAL PROOF PREMIUM — le recensioni Google raccontate come
+     un dato di fatto, non come un widget qualunque.
+     ============================================================ -->
+<section id="reviews" class="reviews">
+  <div class="reviews__score" data-reveal>
+    <span class="reviews__number" id="reviewNumber">0.0</span>
+    <div class="reviews__score-side">
+      <span class="reviews__stars" aria-hidden="true">★★★★☆</span>
+      <span class="reviews__count"><span id="reviewCount">0</span>+ recensioni su Google</span>
+    </div>
+  </div>
+
+  <p class="reviews__lead" data-reveal>Non lo diciamo noi. Lo dicono 430 persone, un tagliere alla volta.</p>
+
+  <div class="reviews__marquee-wrap" data-reveal>
+    <div class="reviews__marquee" id="reviewsMarquee">
+      <div class="reviews__track">
+        <blockquote>"Cocktail veloci e ben fatti, tagliere abbondante: il primo giro non delude mai."</blockquote>
+        <blockquote>"La terrazza è il vero motivo per cui torniamo — d'estate è un altro locale."</blockquote>
+        <blockquote>"Atmosfera giusta per una comitiva grande: si trova sempre posto."</blockquote>
+        <blockquote>"Rapporto qualità prezzo onesto per la zona, drink ben bilanciati."</blockquote>
+        <blockquote>"Il venerdì sera cambia musica, letteralmente: consigliato dopo le 22."</blockquote>
+      </div>
+      <div class="reviews__track" aria-hidden="true">
+        <blockquote>"Cocktail veloci e ben fatti, tagliere abbondante: il primo giro non delude mai."</blockquote>
+        <blockquote>"La terrazza è il vero motivo per cui torniamo — d'estate è un altro locale."</blockquote>
+        <blockquote>"Atmosfera giusta per una comitiva grande: si trova sempre posto."</blockquote>
+        <blockquote>"Rapporto qualità prezzo onesto per la zona, drink ben bilanciati."</blockquote>
+        <blockquote>"Il venerdì sera cambia musica, letteralmente: consigliato dopo le 22."</blockquote>
+      </div>
+    </div>
+  </div>
+
+  <ul class="reviews__tags" data-reveal>
+    <li>#OttimiCocktail</li><li>#Terrazza</li><li>#Taglieri</li><li>#TraAmici</li><li>#AperitivoLungo</li>
+  </ul>
+</section>
+
+<!-- ============================================================
+     FOOTER / CONTATTI — mappa scura stilizzata + orari statici.
+     Questi dati cambiano raramente: nessun problema a tenerli fissi.
+     ============================================================ -->
+<footer id="contatti" class="footer">
+  <div class="footer__grid">
+
+    <div class="footer__map" data-reveal>
+      <iframe
+        class="footer__map-frame"
+        src="https://www.google.com/maps?q=Via+Olindo+Favaron+68A,+20834+Nova+Milanese+MB&z=16&output=embed"
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        title="Mappa KG Friends, Via Olindo Favaron 68/A, Nova Milanese"></iframe>
+      <button class="footer__map-veil" id="mapVeil" type="button">
+        <span>📍 Via Olindo Favaron, 68/A</span>
+        <small>Tocca per esplorare la mappa</small>
+      </button>
+    </div>
+
+    <div class="footer__info" data-reveal>
+      <p class="footer__logo">KG<span>Friends</span></p>
+
+      <div class="footer__hours">
+        <div><span>Lun · Mar · Mer · Gio · Dom</span><strong>18:00 – 01:00</strong></div>
+        <div><span>Ven · Sab</span><strong>18:00 – 02:00</strong></div>
+      </div>
+
+      <address class="footer__contacts">
+        <a href="https://www.google.com/maps?q=Via+Olindo+Favaron+68A,+20834+Nova+Milanese+MB" target="_blank" rel="noopener">Via Olindo Favaron, 68/A — 20834 Nova Milanese (MB)</a>
+        <a href="tel:+390362144687">0362 144 6867</a>
+        <a href="https://www.instagram.com/kg_friends/" target="_blank" rel="noopener">@kg_friends</a>
+        <a href="https://www.facebook.com/kgfriendsloungebar/" target="_blank" rel="noopener">Facebook</a>
+      </address>
+
+      <a class="btn btn--primary btn--block" href="https://wa.me/393454113142?text=Ciao%20KG%20Friends%2C%20vorrei%20prenotare%20un%20tavolo" target="_blank" rel="noopener">Prenota su WhatsApp</a>
+    </div>
+  </div>
+
+  <div class="footer__bottom">
+    <span>© <span id="year"></span> KG Friends — Nova Milanese</span>
+    <span class="footer__credit">Sito realizzato su misura, zero manutenzione richiesta.</span>
+  </div>
+</footer>
+
+<a class="fab-whatsapp" href="https://wa.me/393454113142?text=Ciao%20KG%20Friends%2C%20vorrei%20prenotare%20un%20tavolo" target="_blank" rel="noopener" aria-label="Scrivici su WhatsApp">
+  <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5.1-1.3A10 10 0 1 0 12 2Zm0 18.2a8.1 8.1 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1s-.7.8-.9 1c-.2.2-.3.2-.6.1a6.6 6.6 0 0 1-3.3-2.9c-.2-.4.2-.4.6-1.2.1-.2 0-.4 0-.5L8.9 7.9c-.2-.4-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3a2.9 2.9 0 0 0-.9 2.1c0 1.2.9 2.4 1 2.6.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2-.1-.1-.2-.2-.5-.3Z"/></svg>
+</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/script.js"></script>
+</body>
+</html>
